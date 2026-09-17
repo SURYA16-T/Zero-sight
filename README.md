@@ -159,23 +159,38 @@ cp .env.example .env
 
 ### 1. Run the Security Evaluator API (Backend)
 
-Before making evaluations, start the secure FastAPI evaluator server:
+Before making evaluations, you need to start the secure FastAPI evaluator server in a terminal.
 
-```bash
+**On Windows (PowerShell):**
+```powershell
+.\.venv\Scripts\activate
 uvicorn api.main:app --reload --port 8000
 ```
 
-*The API will be available at `http://localhost:8000`.*
+**On macOS / Linux:**
+```bash
+source .venv/bin/activate
+uvicorn api.main:app --reload --port 8000
+```
+*The API will now be running at `http://localhost:8000`.*
 
 ### 2. Interactive Web Application (Streamlit)
 
-Open a **new terminal window** (activate your `.venv` again) and launch the ZeroSight web dashboard:
+Open a **new, second terminal window** (keep the first one running), activate your environment again, and launch the dashboard:
 
-```bash
-streamlit run app.py
+**On Windows (PowerShell):**
+```powershell
+.\.venv\Scripts\activate
+streamlit run app.py --server.port 8501
 ```
 
-Open your browser to `http://localhost:8501` to test document uploads, view ciphertext inspectors, execute homomorphic evaluations, and download proof receipts.
+**On macOS / Linux:**
+```bash
+source .venv/bin/activate
+streamlit run app.py --server.port 8501
+```
+
+Open your browser to `http://localhost:8501` to test document uploads and interact with the zero-knowledge verification system!
 
 ### 3. Command Line Interface (CLI)
 
