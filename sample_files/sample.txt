@@ -1,0 +1,9 @@
+# ZeroSight Applicant Declaration
+# Format: Key: Value
+
+Income: 18000
+Children: 2
+Disability: No
+Senior: No
+Rent: 5000
+Unemployment_Status: No

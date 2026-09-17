@@ -1,0 +1,24 @@
+{
+  "policy_id": "community_welfare_v1",
+  "version": "1.0",
+  "title": "Community Welfare & Medical Subsidy",
+  "description": "Evaluates assistance eligibility using household income, dependent children, disability, and senior citizen status.",
+  "base_score": 50000,
+  "weights": {
+    "income": -1,
+    "children": 3000,
+    "disability": 10000,
+    "senior": 8000
+  },
+  "threshold": 30000,
+  "required_fields": [
+    "income",
+    "children",
+    "disability",
+    "senior"
+  ],
+  "optional_fields": [
+    "rent",
+    "unemployment_status"
+  ]
+}
