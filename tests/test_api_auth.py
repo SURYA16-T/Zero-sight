@@ -8,7 +8,7 @@ client = TestClient(app)
 
 def test_evaluate_missing_api_key():
     response = client.post("/evaluate", json={})
-    assert response.status_code == 403 # Missing header
+    assert response.status_code in (401, 403) # Missing header (401 in modern FastAPI, 403 in legacy)
 
 def test_evaluate_invalid_api_key():
     response = client.post(
