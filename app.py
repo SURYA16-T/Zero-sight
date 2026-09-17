@@ -43,115 +43,129 @@ st.set_page_config(
 # Custom High-Aesthetic Styling
 CUSTOM_CSS = """
 <style>
-    @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
     html, body, [class*="css"] {
-        font-family: 'Outfit', sans-serif;
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
     }
 
-    code, pre, .mono {
-        font-family: 'JetBrains Mono', monospace !important;
-    }
-
-    /* Main Container & Glassmorphism */
+    /* Main Container */
     .stApp {
-        background: radial-gradient(circle at 10% 20%, rgba(13, 20, 38, 1) 0%, rgba(8, 12, 23, 1) 90%);
-        color: #E2E8F0;
+        background-color: #F8FAFC;
+        color: #0F172A;
+    }
+    
+    /* Animations */
+    @keyframes fadeUp {
+        from { opacity: 0; transform: translateY(12px); }
+        to { opacity: 1; transform: translateY(0); }
     }
 
     .hero-card {
-        background: linear-gradient(135deg, rgba(30, 41, 59, 0.7) 0%, rgba(15, 23, 42, 0.8) 100%);
-        border: 1px solid rgba(255, 255, 255, 0.08);
-        border-radius: 16px;
-        padding: 26px;
+        background-color: #FFFFFF;
+        border: 1px solid #E2E8F0;
+        border-radius: 12px;
+        padding: 24px 32px;
         margin-bottom: 24px;
-        box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.5);
-        backdrop-filter: blur(12px);
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        animation: fadeUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    
+    .hero-card:hover {
+        transform: translateY(-2px) scale(1.005);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
     }
 
     .trust-badge {
         display: inline-flex;
         align-items: center;
         gap: 6px;
-        background: rgba(56, 189, 248, 0.12);
-        border: 1px solid rgba(56, 189, 248, 0.3);
-        color: #38BDF8;
-        padding: 4px 12px;
-        border-radius: 9999px;
-        font-size: 0.82rem;
-        font-weight: 600;
+        background: #F1F5F9;
+        border: 1px solid #E2E8F0;
+        color: #475569;
+        padding: 4px 10px;
+        border-radius: 6px;
+        font-size: 0.75rem;
+        font-weight: 500;
         margin-right: 8px;
     }
 
     .trust-badge-green {
-        background: rgba(52, 211, 153, 0.12);
-        border: 1px solid rgba(52, 211, 153, 0.3);
-        color: #34D399;
+        background: #F0FDF4;
+        border: 1px solid #BBF7D0;
+        color: #166534;
     }
 
     .trust-badge-purple {
-        background: rgba(168, 85, 247, 0.12);
-        border: 1px solid rgba(168, 85, 247, 0.3);
-        color: #C084FC;
+        background: #FAF5FF;
+        border: 1px solid #E9D5FF;
+        color: #6B21A8;
     }
 
     .result-banner-eligible {
-        background: linear-gradient(135deg, rgba(16, 185, 129, 0.25) 0%, rgba(6, 95, 70, 0.35) 100%);
-        border: 2px solid #10B981;
-        border-radius: 16px;
+        background-color: #F0FDF4;
+        border: 1px solid #BBF7D0;
+        border-radius: 12px;
         padding: 24px;
         text-align: center;
-        box-shadow: 0 0 35px rgba(16, 185, 129, 0.3);
+        animation: fadeUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
     }
 
     .result-banner-ineligible {
-        background: linear-gradient(135deg, rgba(239, 68, 68, 0.25) 0%, rgba(153, 27, 27, 0.35) 100%);
-        border: 2px solid #EF4444;
-        border-radius: 16px;
+        background-color: #FEF2F2;
+        border: 1px solid #FECACA;
+        border-radius: 12px;
         padding: 24px;
         text-align: center;
-        box-shadow: 0 0 35px rgba(239, 68, 68, 0.3);
+        animation: fadeUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
     }
 
     .stat-box {
-        background: rgba(30, 41, 59, 0.5);
-        border: 1px solid rgba(255, 255, 255, 0.05);
+        background-color: #FFFFFF;
+        border: 1px solid #E2E8F0;
         border-radius: 12px;
         padding: 16px;
         text-align: center;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.02);
+        animation: fadeUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    
+    .stat-box:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.04);
     }
 
     .stat-label {
-        font-size: 0.8rem;
+        font-size: 0.75rem;
+        font-weight: 500;
         text-transform: uppercase;
         letter-spacing: 0.05em;
-        color: #94A3B8;
+        color: #64748B;
         margin-bottom: 4px;
     }
 
     .stat-val {
-        font-size: 1.6rem;
-        font-weight: 700;
-        color: #F8FAFC;
-    }
-
-    .pipeline-step {
-        border-left: 3px solid #38BDF8;
-        padding-left: 16px;
-        margin-bottom: 20px;
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: #0F172A;
     }
 
     /* Buttons */
     .stButton>button {
-        border-radius: 10px;
-        font-weight: 600;
-        letter-spacing: 0.02em;
-        transition: all 0.2s ease-in-out;
+        border-radius: 8px;
+        font-weight: 500;
+        transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     }
-
+    
     .stButton>button:hover {
-        transform: translateY(-1px);
-        box-shadow: 0 6px 20px rgba(56, 189, 248, 0.3);
+        transform: scale(1.02);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    }
+    
+    .stButton>button:active {
+        transform: scale(0.97);
     }
 </style>
 """
@@ -235,17 +249,17 @@ with st.sidebar:
 st.markdown(
     """
     <div class="hero-card">
-        <h1 style="margin: 0 0 8px 0; font-weight: 800; font-size: 2.2rem; letter-spacing: -0.02em;">
-            🛡️ ZeroSight <span style="font-weight: 300; opacity: 0.7;">| Blind Eligibility Engine</span>
+        <h1 style="margin: 0 0 8px 0; font-weight: 600; font-size: 1.75rem; color: #0F172A;">
+            ZeroSight <span style="font-weight: 400; color: #64748B;">| Blind Eligibility Engine</span>
         </h1>
-        <p style="margin: 0 0 16px 0; color: #94A3B8; font-size: 1.05rem;">
-            Verify welfare subsidies, scholarships, and grants without ever revealing private financial or health records to the evaluator.
+        <p style="margin: 0 0 16px 0; color: #475569; font-size: 1rem;">
+            Verify welfare subsidies, scholarships, and grants without revealing private records to the evaluator.
         </p>
         <div>
-            <span class="trust-badge">🔒 Paillier PHE</span>
-            <span class="trust-badge trust-badge-green">✓ Zero Plaintext Leakage</span>
-            <span class="trust-badge trust-badge-purple">📜 SHA-256 Tamper Proof</span>
-            <span class="trust-badge">⚡ In-Memory Only</span>
+            <span class="trust-badge">Paillier PHE</span>
+            <span class="trust-badge trust-badge-green">Zero Plaintext Leakage</span>
+            <span class="trust-badge trust-badge-purple">SHA-256 Verified</span>
+            <span class="trust-badge">In-Memory Processing</span>
         </div>
     </div>
     """,
@@ -439,18 +453,18 @@ if st.session_state.data is not None:
 
         st.markdown(
             f"""
-            <div style="background: rgba(15, 23, 42, 0.6); border: 1px solid rgba(56, 189, 248, 0.2); border-radius: 12px; padding: 14px 20px; margin-bottom: 16px;">
-                <span style="color: #38BDF8; font-weight: 600;">Public Key Fingerprint:</span> <code style="color: #F8FAFC;">{pub_fingerprint}</code>
+            <div style="background-color: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 8px; padding: 12px 16px; margin-bottom: 16px; font-size: 0.9rem;">
+                <span style="color: #475569; font-weight: 600;">Public Key Fingerprint:</span> <code style="color: #0F172A; background: transparent;">{pub_fingerprint}</code>
                 &nbsp;|&nbsp;
-                <span style="color: #94A3B8;">Modulus Size:</span> <code>{key_choice}-bit</code>
+                <span style="color: #64748B;">Modulus Size:</span> <code style="color: #0F172A; background: transparent;">{key_choice}-bit</code>
                 &nbsp;|&nbsp;
-                <span style="color: #94A3B8;">Status:</span> <span style="color: #34D399; font-weight: 600;">Encrypted Locally</span>
+                <span style="color: #64748B;">Status:</span> <span style="color: #166534; font-weight: 600;">Encrypted Locally</span>
             </div>
             """,
             unsafe_allow_html=True,
         )
 
-        with st.expander("🕵️ Cryptographic Ciphertext Inspector (What the Evaluator Sees)", expanded=True):
+        with st.expander("Cryptographic Ciphertext Inspector (What the Evaluator Sees)", expanded=True):
             inspector_data = []
             for k, enc_num in enc_data.items():
                 c_str = str(enc_num.ciphertext())
@@ -519,13 +533,13 @@ if st.session_state.data is not None:
             st.markdown(
                 f"""
                 <div class="{banner_class}">
-                    <div style="font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.1em; color: {banner_color}; font-weight: 700; margin-bottom: 8px;">
+                    <div style="font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; color: {banner_color}; font-weight: 600; margin-bottom: 4px;">
                         Evaluation Outcome
                     </div>
-                    <div style="font-size: 2.8rem; font-weight: 800; color: #FFFFFF; margin-bottom: 8px;">
+                    <div style="font-size: 2rem; font-weight: 700; color: {banner_color}; margin-bottom: 8px;">
                         {status_text}
                     </div>
-                    <div style="font-size: 1.1rem; color: #E2E8F0;">
+                    <div style="font-size: 1rem; color: #475569;">
                         Decrypted Eligibility Score: <b>{comp['encrypted_decrypted_score']}</b> &nbsp;|&nbsp;
                         Required Threshold: <b>{comp['threshold']}</b>
                     </div>

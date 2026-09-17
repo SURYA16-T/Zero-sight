@@ -88,35 +88,46 @@ Applicant Machine (Local Browser / Device)            Subsidy Evaluator (Remote 
 
 Follow these exact steps to get ZeroSight running on a Windows environment:
 
-**Step 1: Open PowerShell**
+#### Step 1: Open PowerShell
+
 Press `Win + R`, type `powershell`, and hit Enter.
 
-**Step 2: Clone or Download the Repository**
+#### Step 2: Clone or Download the Repository
+
 Navigate to where you want to store the project. If you have the folder already, navigate into it:
+
 ```powershell
 cd C:\path\to\Zerosight
 ```
 
-**Step 3: Create a Python Virtual Environment**
+#### Step 3: Create a Python Virtual Environment
+
 This keeps dependencies isolated from your main system.
+
 ```powershell
 python -m venv .venv
 ```
 
-**Step 4: Activate the Virtual Environment**
+#### Step 4: Activate the Virtual Environment
+
 You must do this every time you open a new terminal to run the project.
+
 ```powershell
 .\.venv\Scripts\activate
 ```
+
 *(If you see an execution policy error, run `Set-ExecutionPolicy Unrestricted -Scope CurrentUser` first and try again).*
 
-**Step 5: Install Required Dependencies**
+#### Step 5: Install Required Dependencies
+
 ```powershell
 pip install -r requirements.txt
 ```
 
-**Step 6: Set up Environment Variables**
+#### Step 6: Set up Environment Variables
+
 Copy the example environment file to create your local config.
+
 ```powershell
 copy .env.example .env
 ```
@@ -153,6 +164,7 @@ Before making evaluations, start the secure FastAPI evaluator server:
 ```bash
 uvicorn api.main:app --reload --port 8000
 ```
+
 *The API will be available at `http://localhost:8000`.*
 
 ### 2. Interactive Web Application (Streamlit)
